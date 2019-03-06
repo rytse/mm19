@@ -5,7 +5,7 @@ import sys
 #outName = sys.argv[3]
 statName = "2017-2018_data.csv"
 gameName = "2017-2018_games.csv"
-outName = "2018_2017_combo.csv"
+outName = "2017-2018_combo.csv"
 
 statFile = open(statName, "r")
 statDict = {}
