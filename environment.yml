@@ -8,5 +8,6 @@ dependencies:
     - scikit-learn
     - matplotlib
     - pandas
+	- xlrd
     - jupyter
     - tornado<6
