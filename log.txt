@@ -1,0 +1,12 @@
+('Coach Record',): 0.6931471805599455
+('AP Poll',): 0.5654687449162833
+('RPI',): 0.5384946703700416
+('Adj Off-Def',): 0.5262910757909494
+('Adj Off-Def', 'Wins Last 10 Games '): 0.519001282539178
+('Adj Def Efficiency', 'Points Allowed Per Game'): 0.5119265434041652
+('Coach Record',): 0.6592606437478618
+('Coach final four appearance',): 0.6456796254932928
+('Coach Tourney Appearances ',): 0.584017300849274
+('AP Poll',): 0.5654687449162833
+('RPI',): 0.5384946833811767
+('Adj Off-Def',): 0.5262909620205956

@@ -1,0 +1,11 @@
+('SRS', 'Major Conference', 'Won a Major Conference'): 0.6303202167916506
+('Coach Tourney Appearances', 'Win %', 'Wins Last 10 Games'): 0.5931508023441718
+('Avg. Scoring margin', 'Seed', 'Points Allowed Per Game'): 0.5659038310274184
+('RPI', 'Adj Off Efficiency', 'Adj Def Efficiency'): 0.5110208925013072
+('Adj Off Efficiency', 'Adj Def Efficiency', 'Turnovers per game'): 0.5075272190170845
+('Adj Off Efficiency', 'Adj Def Efficiency', 'Seed'): 0.5036787218439305
+('Adj Off Efficiency', 'Adj Def Efficiency', 'Points Allowed Per Game'): 0.4911633623466471
+('Adj Def Efficiency', 'Turnovers per game', 'Points Allowed Per Game'): 0.49025919051096484
+('Adj Off Efficiency', 'Adj Def Efficiency', 'Turnovers per game', 'Points Allowed Per Game'): 0.48946804611082373
+('Adj Off Efficiency', 'Adj Def Efficiency', 'Wins Last 10 Games', 'Points Allowed Per Game'): 0.4834126469536046
+('Adj Off Efficiency', 'Adj Def Efficiency', 'Turnovers per game', 'Wins Last 10 Games', 'Points Allowed Per Game'): 0.48077613153508514
