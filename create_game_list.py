@@ -2,7 +2,7 @@
 
 inFile = open("2018_2019_data.csv", "r")
 outFile = open("2018_2019_allgames.csv", "w")
-varsToUse = ["Kaggle ID", "Adj Offensive Efficiency", "Adj Defensive Efficiency", "Points Allowed Per Game", "Turnovers Per Game", "Wins Last 10 Games"]
+varsToUse = ["Kaggle ID", "Region", "Seed", "Adj Offensive Efficiency", "Adj Defensive Efficiency", "Points Allowed Per Game", "Turnovers Per Game", "Wins Last 10 Games"]
 tokensToUse = []
 teamStatDict = {}
 teams = []
