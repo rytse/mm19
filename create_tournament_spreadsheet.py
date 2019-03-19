@@ -3,9 +3,9 @@ import sys
 #statName = sys.argv[1]
 #gameName = sys.argv[2]
 #outName = sys.argv[3]
-statName = "2015-2016_data.csv"
-gameName = "2015-2016_games.csv"
-outName = "2015-2016_combo.csv"
+statName = "2013-2014_data.csv"
+gameName = "2013-2014_games.csv"
+outName = "2013-2014_combo.csv"
 
 statFile = open(statName, "r")
 statDict = {}
