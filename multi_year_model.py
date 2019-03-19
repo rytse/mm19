@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from scipy.stats import norm
+from scipy.stats import norm, zscore
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, WhiteKernel
 from sklearn.metrics import log_loss
@@ -11,6 +11,7 @@ V2U = ['Adj Off Efficiency', 'Adj Def Efficiency', 'Turnovers per game', 'Wins L
 		'Points Allowed Per Game']
 
 for val_year in range(2014, 2018 + 1):
+	print(val_year)
 	train_years = list(range(2014, 2018+1))
 	train_years.remove(val_year)
 	train_years = [f'{train_year - 1}-{train_year}' for train_year in train_years]
@@ -23,11 +24,16 @@ for val_year in range(2014, 2018 + 1):
 		rep.rename(columns=lambda x: ' '.join(x.split()), inplace=True)
 		rep['Winner'] = rep['Winner'] + '_' + train_year
 		rep['Loser'] = rep['Loser'] + '_' + train_year
+
+		rep[rep.select_dtypes(include=[np.number]).columns].apply(zscore)
 		train_games.append(rep)
 	train_games = pd.concat(train_games)
 
 	val_games = pd.read_csv(f'{val_year}_combo.csv')
 	val_games.rename(columns=lambda x: ' '.join(x.split()), inplace=True)
+	val_games[val_games.select_dtypes(include=[np.number]).columns].apply(zscore)
+
+	# Z-Score-ify data
 
 	# Construct list of features to use
 	winner_vars = []
@@ -95,4 +101,4 @@ for val_year in range(2014, 2018 + 1):
 	ll = log_loss(np.array(tys > 0, dtype=np.int),
 					np.array([1 - y_pred_probs, y_pred_probs]).T,
 					labels=[0, 1])
-	print(f'Log Loss: {ll}')
+	print(f'Log Loss: {ll}\n\n')
