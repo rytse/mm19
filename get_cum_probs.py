@@ -1,8 +1,8 @@
 
 
-teamFileName = "" #2018-2019 data sheet from Stein
-probFileName = "" #Kaggle submission
-outFileName = "" #Output
+teamFileName = "2018_2019_data.csv" #2018-2019 data sheet from Stein
+probFileName = "2018_2019_junk_probs.csv" #Kaggle submission
+outFileName = "2018_2019_junk_cps.csv" #Output
 
 # KaggleID (Str) --> Team Name
 kaggleTeamDict = {} #TODO
@@ -47,7 +47,7 @@ roundProbs = [{}, {}, {}, {}, {}, {}, {}] #Note P(round 6) := P(winning it all)
 for reg in regionSeedDict.keys():
     for i in range(len(regionSeedDict[reg])):
         if len(regionSeedDict[reg][i]) == 1:
-            round1Probs[regionSeedDict[reg][i][0]] = 1
+            roundProbs[0][regionSeedDict[reg][i][0]] = 1
         else: #Assuming 2 teams
             roundProbs[0][regionSeedDict[reg][i][0]] = winDict[(regionSeedDict[reg][i][0], regionSeedDict[reg][i][1])]
             roundProbs[0][regionSeedDict[reg][i][1]] = winDict[(regionSeedDict[reg][i][1], regionSeedDict[reg][i][0])]
@@ -57,19 +57,19 @@ for reg in regionSeedDict.keys():
 for i in range(0, 4): #i is current round, getting next round
     for reg in regionSeedDict.keys():
         #Calculate probabilities
-        for j in range(2^(4-i)):
-            k = 2^(4-i)-j-1
+        for j in range(2**(4-i)):
+            k = 2**(4-i)-j-1
             #ASSUMPTION: Sum of Probs. of making it to this round for each seed is 1
             #This is the key part
             for t1 in regionSeedDict[reg][j]:
                 cumProb = 0
-                for t2 in regionSeedDict[rej][k]:
+                for t2 in regionSeedDict[reg][k]:
                     cumProb += roundProbs[i][t2] * winDict[(t1, t2)]
                 cumProb *= roundProbs[i][t1]
                 roundProbs[i+1][t1] = cumProb
         #Re-seed
-            for j in range(2^(3-i)):
-                regionSeedDict[reg][j].extend(regionSeedDict[reg].pop())
+        for j in range(2**(3-i)):
+            regionSeedDict[reg][j].extend(regionSeedDict[reg].pop())
 
 #Predicting last 2 (round 6/5):
 #East vs West and South vs Midwest
@@ -81,7 +81,7 @@ msTeams = []
 for i in range(4):
     for t1 in regionSeedDict[regList[i]][0]: #Should have only one list
         cumProb = 0
-        for t2 in regionSeedDict[regOppList[1]][0]:
+        for t2 in regionSeedDict[regOppList[i]][0]:
             cumProb += roundProbs[4][t2] * winDict[(t1, t2)]
         cumProb *= roundProbs[4][t1]
         roundProbs[5][t1] = cumProb
@@ -110,7 +110,7 @@ outFile.write("Team,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7,\n")
 for kid in kaggleTeamDict.keys():
     outFile.write(kaggleTeamDict[kid] + ",")
     for i in range(7):
-        outFile.write(roundProbs[i][kid] + ",")
+        outFile.write(str(roundProbs[i][kid]) + ",")
     outFile.write("\n")
 outFile.close()    
               
