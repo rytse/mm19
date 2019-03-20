@@ -5,35 +5,26 @@ from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import *
 from sklearn.metrics.pairwise import sigmoid_kernel
 from sklearn.metrics import log_loss
+import itertools
+import thutil
 
 np.random.seed(1)
 
-tmp='''
-V2U = ['Adj Off Efficiency',
-		'Adj Off-Def',
-		'Adj Def Efficiency',
+V2U = ['Coach Tourney Appearances',
 		'FG%',
+		'Adj Off Efficiency',
+		'Adj Def Efficiency',
 		'Strength of Schedule',
-		'Avg. Scoring margin',
-		'Rebounds',
-		'Wins Last 10 Games',
+		'Win %',
+		'Major Conference',
 		'Turnovers per game',
-		'Coach Record']#'''
+		'Wins Last 10 Games',
+		'Coach Record',
+		'Seed',
+		'Won a Major Conference',
+		'Rebounds']
 
-#V2U = ['Adj Off Efficiency', 'Adj Def Efficiency', 'Turnovers per game', 'Wins Last 10 Games',
-#		'Points Allowed Per Game']
-
-V2U = ['Adj Off Efficiency', 'Adj Def Efficiency', 'SRS']
-
-obest = 11.789993587770596
-rbest = 93.72828049656303
-wbest = 25.771604944753086
-
-sig1 = 3.2
-sig2 = 3.2
-ls1 = 93
-ls2 = 93
-sigw = 6
+#V2U = ['Adj Off Efficiency', 'Adj Def Efficiency', 'SRS']
 
 def flip_row(rep):
 	flip = np.random.random() > 0.5
@@ -81,21 +72,24 @@ for i, row in game_data.iterrows():
 			game_data.at[i, vname_l] = wv
 		game_data.at[i, 'pdiff'] *= -1
 
-v2u_mod = []
-for v in V2U:
-	v2u_mod.append(v + ' Winner')
-	v2u_mod.append(v + ' Loser')
+def go(v2u, sig1, sig2, ls1, ls2, ws, wl):
+	# Set up winner, loser names for the selection of vars
+	v2u_mod = []
+	for v in v2u:
+		v2u_mod.append(v + ' Winner')
+		v2u_mod.append(v + ' Loser')
 
-def go():
 	# Set up Gaussian Process with its kernel (don't train yet)
 	rbf1 = sig1 ** 2 * RBF(length_scale=ls1)
 	rbf2 = sig2 ** 2 * RBF(length_scale=ls2)
-	white = sigw ** 2 * WhiteKernel(noise_level=sigw**2)
+	white = ws ** 2 * WhiteKernel(noise_level=wl**2)
 	kernel = rbf1 + rbf2 + white
 
 	gp = GaussianProcessRegressor(kernel,
+		#n_restarts_optimizer=9,
 		normalize_y=True)
 
+	lls = []
 	for val_year in range(2014, 2018+1):
 		val_year = f'{val_year - 1}-{val_year}'
 		train = game_data[game_data['Winner'].str.endswith(val_year) == False]
@@ -116,7 +110,25 @@ def go():
 		ll = log_loss(np.array(y_val > 0, dtype=np.int),
 						np.array([1 - y_pred_probs, y_pred_probs]).T,
 						labels=[0, 1])
-		print(f'Log Loss: {ll}\n\n')
+		lls.append(ll)
 
+	print(str(np.mean(lls)) + ', ' + str(v2u))
+	return np.mean(lls)
 
-go()
+sig1 = 3.2
+sig2 = 3.2
+ls1 = 93
+ls2 = 93
+ws = 6
+wl = 6
+
+#best_ll = 1
+#best_v2u = None
+tp = thutil.ThreadPool(8)
+for nvars in range(3, 5+1):
+#for nvars in range(1, 3):
+	for v2u in set(itertools.combinations(V2U, nvars)):
+		tp.add_task(go, *(v2u, sig1, sig2, ls1, ls2, ws, wl))
+
+#print('Best V2U: ' + str(best_v2u))
+#print('Best LL: ' + str(best_ll))
