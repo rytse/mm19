@@ -1,5 +1,6 @@
-inFile = open("2019_noisy_out.csv", "r")
-outFile = open("2019_noisy_out_fix.csv", "w") 
+inFile = open("2019_avg_out.csv", "r")
+outFile = open("2019_avg_out_fix.csv", "w")
+outFile.write("ID,Pred\n")
 for l in inFile:
     line = l.strip()
     tokens = l.split(",")
