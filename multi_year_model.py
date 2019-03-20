@@ -72,7 +72,7 @@ for i, row in game_data.iterrows():
 			game_data.at[i, vname_l] = wv
 		game_data.at[i, 'pdiff'] *= -1
 
-def go(v2u, sig1, sig2, ls1, ls2, ws, wl):
+def go(v2u, fi, sig1, sig2, ls1, ls2, ws, wl):
 	# Set up winner, loser names for the selection of vars
 	v2u_mod = []
 	for v in v2u:
@@ -113,7 +113,7 @@ def go(v2u, sig1, sig2, ls1, ls2, ws, wl):
 		lls.append(ll)
 
 	print(str(np.mean(lls)) + ', ' + str(v2u))
-	return np.mean(lls)
+	fi.write(f'{np.mean(lls)}, {v2u}\n')
 
 sig1 = 3.2
 sig2 = 3.2
@@ -122,13 +122,10 @@ ls2 = 93
 ws = 6
 wl = 6
 
-#best_ll = 1
-#best_v2u = None
-tp = thutil.ThreadPool(8)
-for nvars in range(3, 5+1):
-#for nvars in range(1, 3):
-	for v2u in set(itertools.combinations(V2U, nvars)):
-		tp.add_task(go, *(v2u, sig1, sig2, ls1, ls2, ws, wl))
-
-#print('Best V2U: ' + str(best_v2u))
-#print('Best LL: ' + str(best_ll))
+with open('ALOG.csv', 'a+') as fi:
+	tp = thutil.ThreadPool(8)
+	for nvars in range(3, 5+1):
+	#for nvars in range(1, 3):
+		for v2u in list(map(set, itertools.combinations(V2U, nvars))):
+			tp.add_task(go, *(v2u, fi, sig1, sig2, ls1, ls2, ws, wl))
+	tp.wait_completion()
