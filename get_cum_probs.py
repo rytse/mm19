@@ -1,8 +1,8 @@
 
 
 teamFileName = "2018_2019_data.csv" #2018-2019 data sheet from Stein
-probFileName = "2018_2019_junk_probs.csv" #Kaggle submission
-outFileName = "2018_2019_junk_cps.csv" #Output
+probFileName = "2019_noisy_out.csv" #Kaggle submission
+outFileName = "2019_noisy_cps.csv" #Output
 
 # KaggleID (Str) --> Team Name
 kaggleTeamDict = {} #TODO
