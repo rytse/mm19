@@ -1,4 +1,4 @@
-Team 1,Team2,Kaggle ID 1,Region 1,Seed 1,Adj Offensive Efficiency 1,Adj Defensive Efficiency 1,Points Allowed Per Game 1,Turnovers Per Game 1,Wins Last 10 Games 1,Kaggle ID 2,Region 2,Seed 2,Adj Offensive Efficiency 2,Adj Defensive Efficiency 2,Points Allowed Per Game 2,Turnovers Per Game 2,Wins Last 10 Games 2
+Team 1,Team2,Kaggle ID Winner,Region Winner,Seed Winner,Adj Offensive Efficiency Winner,Adj Defensive Efficiency Winner,Points Allowed Per Game Winner,Turnovers Per Game Winner,Wins Last 10 Games Winner,Kaggle ID Loser,Region Loser,Seed Loser,Adj Offensive Efficiency Loser,Adj Defensive Efficiency Loser,Points Allowed Per Game Loser,Turnovers Per Game Loser,Wins Last 10 Games Loser
 Abilene Christian,Arizona State,1101,Midwest,15,103.6,101.5,64.9,12.0,8,1113,West,11,109.8,98.6,73.1,13.7,7
 Abilene Christian,Auburn,1101,Midwest,15,103.6,101.5,64.9,12.0,8,1120,Midwest,5,119.6,96.2,68.6,12.6,9
 Abilene Christian,Baylor,1101,Midwest,15,103.6,101.5,64.9,12.0,8,1124,West,9,113.5,98.2,67.2,13.3,4

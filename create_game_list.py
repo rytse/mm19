@@ -22,8 +22,8 @@ inFile.close()
 teams.sort()
 
 outFile.write("Team 1,Team2,")
-outFile.write(",".join([x + " 1" for x in varsToUse]) + ",")
-outFile.write(",".join([x + " 2" for x in varsToUse]) + "\n")
+outFile.write(",".join([x + " Winner" for x in varsToUse]) + ",")
+outFile.write(",".join([x + " Loser" for x in varsToUse]) + "\n")
 
 for i in range(len(teams)):
     for j in range(i+1, len(teams)):
