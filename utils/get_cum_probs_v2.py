@@ -1,9 +1,13 @@
-import sys
+import os, sys
 
-teamFileName = "..\\2018_2019_data.csv" #2018-2019 data sheet from Stein
-probFileName = "..\\2019_avg_out.csv" #Kaggle submission
-outFileName = "..\\2019_avg_cps_2.csv" #Output
-inFileName = "..\\2019_still_in_it.csv"
+slash = "/"
+if os.name == "nt":
+    slash = "\\"
+
+teamFileName = ".." + slash + "2018_2019_data.csv" #2018-2019 data sheet from Stein
+probFileName = ".." + slash + "2019_avg_out.csv" #Kaggle submission
+outFileName = ".." + slash + "2019_avg_cps_2.csv" #Output
+inFileName = ".." + slash + "2019_still_in_it.csv"
 currentRound = 1 #1-based
 
 # KaggleID (Str) --> Team Name
