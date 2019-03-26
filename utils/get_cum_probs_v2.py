@@ -6,9 +6,9 @@ if os.name == "nt":
 
 teamFileName = ".." + slash + "2018_2019_data.csv" #2018-2019 data sheet from Stein
 probFileName = ".." + slash + "2019_noisy_out.csv" #Kaggle submission
-outFileName = ".." + slash + "2019_noisy_cps_3.csv" #Output
+outFileName = ".." + slash + "2019_noisy_cps_4.csv" #Output
 inFileName = ".." + slash + "2019_still_in_it.csv"
-currentRound = 1 #1-based
+currentRound = 2 #1-based
 
 # KaggleID (Str) --> Team Name
 kaggleTeamDict = {} #TODO
@@ -69,6 +69,12 @@ for l in inFile:
             roundProbs[i][tokens[1]] = float(tokens[i+2])
         inCurrentRound[tokens[1]] = float(tokens[currentRound+2])
 inFile.close()
+
+#Need to do some re-seeding
+for i in range(currentRound-1):
+    for reg in regionSeedDict.keys():
+        for j in range(2**(3-i)):
+            regionSeedDict[reg][j].extend(regionSeedDict[reg].pop())
     
 #Round 2-5 (1-4) probabilities:
 for i in range(currentRound-1, 4): #i is current round, getting next round

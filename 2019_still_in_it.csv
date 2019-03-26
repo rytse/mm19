@@ -2,37 +2,37 @@ School Name,Kaggle ID,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7
 Abilene Christian,1101,1,0,0,0,0,0,0
 Arizona State,1113,1,0,0,0,0,0,0
 Auburn,1120,1,1,1,1,1,1,1
-Baylor,1124,1,1,1,1,1,1,1
+Baylor,1124,1,1,0,0,0,0,0
 Belmont,1125,1,0,0,0,0,0,0
 Bradley,1133,1,0,0,0,0,0,0
-Buffalo,1138,1,1,1,1,1,1,1
+Buffalo,1138,1,1,0,0,0,0,0
 Cincinnati,1153,1,0,0,0,0,0,0
 Colgate,1159,1,0,0,0,0,0,0
 Duke,1181,1,1,1,1,1,1,1
 Fairleigh Dickinson,1192,1,0,0,0,0,0,0
-Florida ,1196,1,1,1,1,1,1,1
+Florida ,1196,1,1,0,0,0,0,0
 Florida State,1199,1,1,1,1,1,1,1
 Gardner-Webb,1205,1,0,0,0,0,0,0
 Georgia State,1209,1,0,0,0,0,0,0
 Gonzaga,1211,1,1,1,1,1,1,1
 Houston,1222,1,1,1,1,1,1,1
 Iona,1233,1,0,0,0,0,0,0
-Iowa,1234,1,0,0,0,0,0,0
-Iowa State,1235,1,1,1,1,1,1,1
-Kansas,1242,1,1,1,1,1,1,1
+Iowa,1234,1,1,0,0,0,0,0
+Iowa State,1235,1,0,0,0,0,0,0
+Kansas,1242,1,1,0,0,0,0,0
 Kansas State,1243,1,0,0,0,0,0,0
 Kentucky,1246,1,1,1,1,1,1,1
-Liberty,1251,1,1,1,1,1,1,1
+Liberty,1251,1,1,0,0,0,0,0
 Louisville,1257,1,0,0,0,0,0,0
 LSU,1261,1,1,1,1,1,1,1
 Marquette,1266,1,0,0,0,0,0,0
-Maryland,1268,1,1,1,1,1,1,1
+Maryland,1268,1,1,0,0,0,0,0
 Michigan,1276,1,1,1,1,1,1,1
 Michigan State,1277,1,1,1,1,1,1,1
-Minnesota,1278,1,1,1,1,1,1,1
+Minnesota,1278,1,1,0,0,0,0,0
 Miss State,1280,1,0,0,0,0,0,0
 Montana,1285,1,0,0,0,0,0,0
-Murray State,1293,1,1,1,1,1,1,1
+Murray State,1293,1,1,0,0,0,0,0
 N. Kentucky,1297,1,0,0,0,0,0,0
 N. Mexico State,1308,1,0,0,0,0,0,0
 NC Central,1300,0,0,0,0,0,0,0
@@ -40,8 +40,8 @@ Nevada,1305,1,0,0,0,0,0,0
 North Carolina,1314,1,1,1,1,1,1,1
 North Dakota State,1295,1,0,0,0,0,0,0
 Northeastern,1318,1,0,0,0,0,0,0
-Ohio State,1326,1,1,1,1,1,1,1
-Oklahoma,1328,1,1,1,1,1,1,1
+Ohio State,1326,1,1,0,0,0,0,0
+Oklahoma,1328,1,1,0,0,0,0,0
 Old Dominion,1330,1,0,0,0,0,0,0
 Ole Miss,1279,1,0,0,0,0,0,0
 Oregon,1332,1,1,1,1,1,1,1
@@ -55,15 +55,15 @@ Syracuse,1393,1,0,0,0,0,0,0
 Temple,1396,0,0,0,0,0,0,0
 Tennessee,1397,1,1,1,1,1,1,1
 Texas Tech,1403,1,1,1,1,1,1,1
-UC Irvine,1414,1,1,1,1,1,1,1
-UCF,1416,1,1,1,1,1,1,1
+UC Irvine,1414,1,1,0,0,0,0,0
+UCF,1416,1,1,0,0,0,0,0
 Utah State,1429,1,0,0,0,0,0,0
 Va Tech,1439,1,1,1,1,1,1,1
 VCU,1433,1,0,0,0,0,0,0
 Vermont,1436,1,0,0,0,0,0,0
-Villanova,1437,1,1,1,1,1,1,1
+Villanova,1437,1,1,0,0,0,0,0
 Virginia,1438,1,1,1,1,1,1,1
-Washington,1449,1,1,1,1,1,1,1
+Washington,1449,1,1,0,0,0,0,0
 Wisconsin,1458,1,0,0,0,0,0,0
-Wofford,1459,1,1,1,1,1,1,1
+Wofford,1459,1,1,0,0,0,0,0
 Yale,1463,1,0,0,0,0,0,0
