@@ -6,9 +6,9 @@ if os.name == "nt":
 
 teamFileName = ".." + slash + "2018_2019_data.csv" #2018-2019 data sheet from Stein
 probFileName = ".." + slash + "2019_noisy_out.csv" #Kaggle submission
-outFileName = ".." + slash + "2019_noisy_cps_4.csv" #Output
+outFileName = ".." + slash + "2019_noisy_cps_5.csv" #Output
 inFileName = ".." + slash + "2019_still_in_it.csv"
-currentRound = 2 #1-based
+currentRound = 3 #1-based
 
 # KaggleID (Str) --> Team Name
 kaggleTeamDict = {} #TODO
