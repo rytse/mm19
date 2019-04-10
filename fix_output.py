@@ -1,7 +1,7 @@
 import sys
 
-inFile = open("2019_noisy_out.csv", "r")
-outFile = open("2019_noisy_out_fix.csv", "w")
+inFile = open("2019_clean_out.csv", "r")
+outFile = open("2019_clean_out_fix.csv", "w")
 outFile.write("ID,Pred\n")
 count = 0
 for l in inFile:
